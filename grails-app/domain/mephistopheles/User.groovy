@@ -39,6 +39,10 @@ class User {
         gitHubAccount size: 1..30, blank: false, unique: true
     }
 
+    @Override
+    String toString() {
+        return name + " " + fatherLastName
+    }
     static mapping = {
         version false
     }

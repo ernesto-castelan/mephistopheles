@@ -19,6 +19,10 @@ class Contact {
         relationShip size: 3..25
     }
 
+    @Override
+    String toString() {
+        return name + " " + fatherLastName + " " + relationShip
+    }
     static mapping = {
         version false
     }
