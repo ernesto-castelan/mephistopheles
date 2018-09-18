@@ -7,7 +7,7 @@ class Contact {
     String motherLastName
     String homePhone
     String mobilePhone
-    String relationShip
+    String relationship
 
     static constraints = {
         name size: 1..30
@@ -15,12 +15,12 @@ class Contact {
         motherLastName size: 1..30
         mobilePhone matches: "[0-9]+", size: 8..12
         homePhone matches: "[0-9]+", size: 8..12
-        relationShip size: 3..25
+        relationship size: 3..25
     }
 
     @Override
     String toString() {
-        return name + " " + fatherLastName + " " + relationShip
+        return "$name $fatherLastName $relationship"
     }
     static mapping = {
         version false
