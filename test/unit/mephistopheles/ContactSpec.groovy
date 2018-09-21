@@ -15,7 +15,7 @@ class ContactSpec extends Specification{
                                               motherLastName: motherLastName,
                                               homePhone: homePhone,
                                               mobilePhone: mobilePhone,
-                                              relationShip: relationShip)
+                                              relationship: relationship)
         //println getProperties(contactInstance)
         and: "A pair of instances to test uniqueness"
         new Contact(name:"Pedro",
@@ -23,7 +23,7 @@ class ContactSpec extends Specification{
                 motherLastName: "Piedra",
                 homePhone: "11223344",
                 mobilePhone: "44556677",
-                relationShip: "Esposo").save(flush: true, failOnError:true)
+                relationship: "Esposo").save(flush: true, failOnError:true)
         assert Contact.count() == 1
 
         then: "Validate fields"
@@ -32,7 +32,7 @@ class ContactSpec extends Specification{
         expectedErrorCount == contactInstance.errors.errorCount
 
         where:
-        name            |fatherLastName |motherLastName    |homePhone       |mobilePhone    |relationShip ||result    |expectedErrorCount |reason
+        name            |fatherLastName |motherLastName    |homePhone       |mobilePhone    |relationship ||result    |expectedErrorCount |reason
         "Pedro"         |"Pica"         |"Piedra"          | "11223344"     |"99887766"     |"Esposo"     ||true      |0                  |"All good :-)"
         null            |null           |null              |null            |null           |null         ||false     |6                  |"All bad :-("
 
@@ -68,11 +68,11 @@ class ContactSpec extends Specification{
         "Pedro"        |"Pica"        |"Piedra"           | "11223344"  |"88008800"     |"Esposo"     ||true      |0                  |"mobilePhone is ok"
         "Pedro"        |"Pica"        |"Piedra"           | "11223344"  |"11-11-11*10"  |"Esposo"     ||false     |1                  |"mobilePhone does not match with [0-9]*"
 
-        //relationShip
-        "P"*10  |"Pica"        |"Piedra"           | "11223344"  |"44556677"  |null         ||false     |1                  |"relationShip is null"
-        "P"*10  |"Pica"        |"Piedra"           | "11223344"  |"44556677"  |""           ||false     |1                  |"relationShip is blank"
-        "P"*10  |"Pica"        |"Piedra"           | "11223344"  |"44556677"  |"Esposo"*5   ||false     |1                  |"relationShip is above maximum size (25)"
-        "P"*10  |"Pica"        |"Piedra"           | "11223344"  |"44556677"  |"Esposo"     ||true      |0                  |"relationShip is ok"
+        //relationship
+        "P"*10  |"Pica"        |"Piedra"           | "11223344"  |"44556677"  |null         ||false     |1                  |"relationship is null"
+        "P"*10  |"Pica"        |"Piedra"           | "11223344"  |"44556677"  |""           ||false     |1                  |"relationship is blank"
+        "P"*10  |"Pica"        |"Piedra"           | "11223344"  |"44556677"  |"Esposo"*5   ||false     |1                  |"relationship is above maximum size (25)"
+        "P"*10  |"Pica"        |"Piedra"           | "11223344"  |"44556677"  |"Esposo"     ||true      |0                  |"relationship is ok"
 
     }
 
@@ -83,7 +83,7 @@ class ContactSpec extends Specification{
                 motherLastName: "Piedra",
                 homePhone: "11223344",
                 mobilePhone: "44556677",
-                relationShip: "Esposo")
+                relationship: "Esposo")
         contactInstance.save(flush: true)
         assert Contact.count() == 1
 

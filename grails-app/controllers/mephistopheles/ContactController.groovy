@@ -4,7 +4,7 @@ class ContactController {
 
     //static  scaffold = true
 
-    static allowedMethods = [index:'GET', create:'GET', save:'POST', show:'GET', update:'POST']
+    static allowedMethods = [index:'GET', create:'GET', save:'POST', show:'GET', update:'POST', edit:'GET', delete:'GET']
 
     def index () {
         params.max = Math.min(params.max ? params.int('max') : 50, 500)
@@ -20,8 +20,6 @@ class ContactController {
         bindData(contactInstance, params)
 
         if (!contactInstance.validate()) {
-            println("**************************************************************")
-            println(contactInstance.errors)
             render view:'create', model:[contactInstance:contactInstance, contactErrors:contactInstance.errors ]
             return
         }
@@ -44,8 +42,6 @@ class ContactController {
         Contact contactInstance = Contact.get(id)
 
         if (!contactInstance) {
-            println("**************************************************************")
-            println(contactInstance.errors)
             redirect action:'index'
             return
         }
@@ -55,17 +51,14 @@ class ContactController {
 
     def update(Long id) {
         Contact contactInstance = Contact.get(id)
-        bindData(contactInstance, params)
 
         if(!contactInstance) {
-
             redirect action:'index'
             return
         }
+        bindData(contactInstance, params)
 
         if(!contactInstance.validate()) {
-            println("**************************************************************")
-            println(contactInstance.errors)
             render view:'edit', model:[contactInstance:contactInstance, contactErrors:contactInstance.errors ]
             return
         }
