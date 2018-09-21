@@ -1,41 +1,29 @@
-<div class="">
-    <label for="name">
-        Name: 
-    </label>
-    <g:textField name="name" maxlength="30" required="" value="${contactInstance?.name}"/>
-</div>
+    <div class="form-group row">
+        <label for="name" class="col-sm-2 col-form-label">Nombre:</label>
+        <g:textField class="form-control col-sm-9"  name="name" maxlength="30" required="" value="${contactInstance?.name}"/>
+    </div>
 
-<div class="">
-    <label for="fatherLastName">
-        Father Last Name: 
-    </label>
-    <g:textField name="fatherLastName" maxlength="30" required="" value="${contactInstance?.fatherLastName}"/>
-</div>
+    <div class="form-group row">
+        <label for="fatherLastName" class="col-sm-2 col-form-label">Apellido Paterno:</label>
+        <g:textField class="form-control col-sm-9" name="fatherLastName" maxlength="30" required="" value="${contactInstance?.fatherLastName}"/>
+    </div>
 
-<div class="">
-    <label for="motherLastName">
-        Mother Last Name: 
-    </label>
-    <g:textField name="motherLastName" maxlength="30" required="" value="${contactInstance?.motherLastName}"/>
-</div>
+    <div class="form-group row">
+        <label for="motherLastName" class="col-sm-2 col-form-label">Apellido Materno:</label>
+        <g:textField class="form-control col-sm-9" name="motherLastName" maxlength="30" required="" value="${contactInstance?.motherLastName}"/>
+    </div>
 
-<div class="">
-    <label for="homePhone">
-        Home Phone: 
-    </label>
-    <g:textField name="homePhone" maxlength="12" required="" value="${contactInstance?.homePhone}"/>
-</div>
+    <div class="form-group row">
+        <label for="homePhone" class="col-sm-2 col-form-label">Teléfono celular:</label>
+        <g:textField class="form-control col-sm-9" name="mobilePhone" maxlength="12" required="" value="${contactInstance?.mobilePhone}"/>
+    </div>
 
-<div class="">
-    <label for="mobilePhone">
-        Mobile Phone: 
-    </label>
-    <g:textField name="mobilePhone" maxlength="12" required="" value="${contactInstance?.mobilePhone}"/>
-</div>
+    <div class="form-group row">
+        <label for="mobilePhone" class="col-sm-2 col-form-label">Teléfono de casa:</label>
+        <g:textField class="form-control col-sm-9" name="homePhone" maxlength="12" required="" value="${contactInstance?.homePhone}"/>
+    </div>
 
-<div class="">
-    <label for="relationship">
-        Relationship: 
-    </label>
-    <g:textField name="relationship" maxlength="25" required="" value="${contactInstance?.relationship}"/>
-</div>
+    <div class="form-group row">
+        <label for="relationship" class="col-sm-2 col-form-label">Parentezco:</label>
+        <g:textField class="form-control col-sm-9" name="relationship" maxlength="25" required="" value="${contactInstance?.relationship}"/>
+    </div>

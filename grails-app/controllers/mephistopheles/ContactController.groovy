@@ -66,7 +66,7 @@ class ContactController {
         if(!contactInstance.validate()) {
             println("**************************************************************")
             println(contactInstance.errors)
-            render view:'show', model:[contactInstance:contactInstance]
+            render view:'edit', model:[contactInstance:contactInstance, contactErrors:contactInstance.errors ]
             return
         }
 
