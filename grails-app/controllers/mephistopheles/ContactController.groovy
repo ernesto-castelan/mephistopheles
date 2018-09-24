@@ -2,8 +2,6 @@ package mephistopheles
 
 class ContactController {
 
-    //static  scaffold = true
-
     static allowedMethods = [index:'GET', create:'GET', save:'POST', show:'GET', update:'POST', edit:'GET', delete:'GET']
 
     def index () {
@@ -23,6 +21,7 @@ class ContactController {
             render view:'create', model:[contactInstance:contactInstance, contactErrors:contactInstance.errors ]
             return
         }
+        println(contactInstance.toString())
         contactInstance.save()
         redirect action:'show', id:contactInstance.id
     }

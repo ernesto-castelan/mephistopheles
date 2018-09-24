@@ -155,8 +155,6 @@ class ContactControllerSpec extends Specification {
         when: "Calling the save action"
         controller.save()
 
-        /*then: "Success message is displayed"
-        flash.message == 'contact.created.message'*/
         then: "User is redirected"
         response.redirectedUrl == "/contact/show/${Contact.last().id}"
         and: "Contact instance is saved"
@@ -276,8 +274,6 @@ class ContactControllerSpec extends Specification {
         when: "Calling the update action"
         controller.update()
 
-        /*then: "Success message is displayed"
-        flash.message == 'contact.updated.message'*/
         then: "User is redirected"
         response.redirectedUrl == "/contact/show/${params.id}"
         and: "Contact instance is updated"

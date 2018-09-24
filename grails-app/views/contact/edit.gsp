@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="layout" content="contactmain" />
+    <asset:javascript src="validation.js"/>
+    <asset:stylesheet src="contact.form.css"/>
 </head>
 <body>
     <div class="container">
@@ -14,7 +16,7 @@
 
         <g:render template="errors"/>
 
-        <g:form action="update" controller="contact" id = "${contactInstance.id}" >
+        <g:form action="update" controller="contact" name="contactForm" id = "${contactInstance.id}" >
             <g:render template="form"/>
             <g:submitButton class="btn btn-info" name="update" value="Guardar" />
             <g:link type="button" class="btn btn-secondary" action="show" id = "${contactInstance.id}">Cancelar</g:link>

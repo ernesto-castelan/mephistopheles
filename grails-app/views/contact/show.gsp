@@ -49,8 +49,6 @@
             </tbody>
         </table>
         <g:link class="btn btn-info" action="edit" controller="contact" id="${contactInstance.id}" >Editar</g:link>
-        <!--<g:link class="btn btn-danger" action="delete" controller="contact" id="${contactInstance.id}" >Eliminar</g:link>-->
-        <!-- Button trigger modal -->
         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
             Eliminar
         </button>

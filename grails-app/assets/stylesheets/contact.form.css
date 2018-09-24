@@ -1,0 +1,5 @@
+#contactForm label.error, #contactForm input.submit {
+    width: 380px;
+	margin-left: auto;
+   	color:red;
+}

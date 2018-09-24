@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="layout" content="contactmain" />
+    <asset:stylesheet src="contact.form.css"/>
+    <asset:javascript src="validation.js"/>
 </head>
 <body>
     <div class="container">
@@ -14,7 +16,7 @@
 
         <g:render template="errors"/>
 
-        <g:form action="save" controller="contact"  >
+        <g:form action="save" controller="contact"  name="contactForm">
             <g:render template="form"/>
             <g:submitButton class="btn btn-success" name="update" value="Guardar contacto" />
         </g:form>
