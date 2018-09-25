@@ -4,6 +4,8 @@ class ContactController {
 
     static allowedMethods = [index:'GET', create:'GET', save:'POST', show:'GET', update:'POST', edit:'GET', delete:'GET']
 
+    ContactService contactService
+
     def index () {
         params.max = Math.min(params.max ? params.int('max') : 50, 500)
         def contactList = Contact.list(params)
@@ -21,30 +23,25 @@ class ContactController {
             render view:'create', model:[contactInstance:contactInstance, contactErrors:contactInstance.errors ]
             return
         }
-        println(contactInstance.toString())
-        contactInstance.save()
+        contactService.save(contactInstance)
         redirect action:'show', id:contactInstance.id
     }
 
     def show(Long id) {
         Contact contactInstance = Contact.get(id)
-
         if (!contactInstance) {
             redirect action:'index'
             return
         }
-
         return [contactInstance:contactInstance]
     }
 
     def edit(Long id) {
         Contact contactInstance = Contact.get(id)
-
         if (!contactInstance) {
             redirect action:'index'
             return
         }
-
         return [contactInstance:contactInstance]
     }
 
@@ -68,13 +65,18 @@ class ContactController {
 
     def delete (Long id) {
         Contact contactInstance = Contact.get(id)
-
         if (!contactInstance) {
             redirect action:'index'
             return
         }
-
-        contactInstance.delete(flush: true)
+        contactService.delete(contactInstance)
         redirect action:'index'
     }
+
+    def report (String relationship){
+        List<Contact> contactList = contactService.report(relationship)
+        println(contactList)
+        return [contactList: contactList]
+    }
+
 }

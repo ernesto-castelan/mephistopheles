@@ -7,6 +7,11 @@ class UrlMappings {
             }
         }
 
+        name contactList: "/details/$relationship" {
+            controller = 'contact'
+            action = 'report'
+        }
+
         "/"(view:"/index")
         "500"(view:'/error')
 	}

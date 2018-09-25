@@ -31,8 +31,8 @@
 						<td>${contactInstance.motherLastName}</td>
 						<td>${contactInstance.mobilePhone}</td>
 						<td>${contactInstance.homePhone}</td>
-						<td>${contactInstance.relationship}</td>
-						<td><g:link class="badge badge-success" action="show" id="${contactInstance.id}" >Ver</g:link></td>
+						<td><g:link class="badge badge-info" mapping="contactList" params = "[relationship: '${contactInstance.relationship}']" >${contactInstance.relationship}</g:link></td>
+						<td><g:link class="badge badge-success" action="show" id = "${contactInstance.id}" >Ver</g:link></td>
 					</tr>
 				</g:each>
 			</tbody>

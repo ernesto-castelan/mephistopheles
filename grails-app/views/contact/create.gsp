@@ -18,7 +18,7 @@
 
         <g:form action="save" controller="contact"  name="contactForm">
             <g:render template="form"/>
-            <g:submitButton class="btn btn-success" name="update" value="Guardar contacto" />
+            <g:submitButton class="btn btn-success" name="create" value="Guardar contacto" />
         </g:form>
         <br>
     </div>

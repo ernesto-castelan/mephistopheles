@@ -1,6 +1,6 @@
 $().ready(function() {
     $("#contactForm").validate({
-        debug: true,
+        debug: false,
         rules: {
             // simple rule, converted to {required:true}
             name: "required",
