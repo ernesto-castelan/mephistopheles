@@ -41,7 +41,7 @@ class User {
 
     @Override
     String toString() {
-        return name + " " + fatherLastName
+        return "$name $fatherLastName $motherLastName"
     }
     static mapping = {
         version false
