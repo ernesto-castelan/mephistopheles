@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="layout" content="contactmain" />
-    <asset:stylesheet src="contact.form.css"/>
-    <asset:javascript src="validation.js"/>
+    <asset:stylesheet src="validationEngine.jquery.css"/>
+    <asset:stylesheet src="template.css"/>
+    <asset:javascript src="jquery.validationEngine-es.js" charset="utf-8"/>
+    <asset:javascript src="jquery.validationEngine.js" charset="utf-8"/>
+    <asset:javascript src="jqvalidatione.js"/>
 </head>
 <body>
     <div class="container">
