@@ -6,21 +6,22 @@
 <body>
 
 	<div class="container">
-		<g:link class="btn btn-success" action="create" > Nuevo Contacto </g:link>
+		<g:link class="btn btn-success" action="create" ><g:message code="view.index.newContact" /></g:link>
+		<g:link class="btn btn-info" mapping="groupContactReport"><g:message code="view.index.contactReport" /></g:link></td>
 	</div>
 	<br>
 	<div class="container table-responsive">
 		<table class="table table-bordered table-hover table-sm">
-			<caption>Contact List</caption>
+			<caption><g:message code="view.index.captionTable"/></caption>
 			<thead class="thead-dark">
 				<tr>
-					<th>Nombre</th>
-					<th>Apellido Paterno</th>
-					<th>Apellido Materno</th>
-					<th>Teléfono celular</th>
-					<th>Teléfono de casa</th>
-					<th>Parentezco</th>
-					<th>Detalles</th>
+					<th><g:message code="contact.name.label" /></th>
+					<th><g:message code="contact.fatherLastName.label" /></th>
+					<th><g:message code="contact.motherLastName.label" /></th>
+					<th><g:message code="contact.mobilePhone.label" /></th>
+					<th><g:message code="contact.homePhone.label" /></th>
+					<th><g:message code="contact.relationship.label" /></th>
+					<th><g:message code="contact.details.label" /></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -31,8 +32,8 @@
 						<td>${contactInstance.motherLastName}</td>
 						<td>${contactInstance.mobilePhone}</td>
 						<td>${contactInstance.homePhone}</td>
-						<td><g:link class="badge badge-info" mapping="contactList" params = "[relationship: '${contactInstance.relationship}']" >${contactInstance.relationship}</g:link></td>
-						<td><g:link class="badge badge-success" action="show" id = "${contactInstance.id}" >Ver</g:link></td>
+						<td>${contactInstance.relationship}
+						<td><g:link class="badge badge-success" action="show" id = "${contactInstance.id}" ><g:message code="contact.viewDetails.label" /></g:link></td>
 					</tr>
 				</g:each>
 			</tbody>

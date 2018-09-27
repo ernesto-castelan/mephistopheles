@@ -11,11 +11,10 @@
 </head>
 <body>
     <div class="container">
-        <g:link class="btn btn-info" action="index">Todos los contactos</g:link>
+        <g:link class="btn btn-info" action="index"><g:message code="contact.allContacts.label" /></g:link>
     </div>
-    <br>
     <div class="container border border-secondary rounded">
-        <p>Nuevo contacto</p>
+        <p><g:message code="view.create.newContact" /></p>
 
         <g:render template="errors"/>
 
@@ -23,7 +22,6 @@
             <g:render template="form"/>
             <g:submitButton class="btn btn-success" name="create" value="Guardar contacto" />
         </g:form>
-        <br>
     </div>
 
 </body>

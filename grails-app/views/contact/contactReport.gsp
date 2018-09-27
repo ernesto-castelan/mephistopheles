@@ -2,25 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><g:message code="showreport.title" /></title>
+    <title><g:message code="view.index.title" /></title>
     <meta name="layout" content="contactmain" />
 </head>
 <body>
-    <div class="container">
-        <g:link class="btn btn-info" action="index">Todos los contactos</g:link>
+    <div class="container mb-3">
+        <g:link class="btn btn-info" action="index"><g:message code="contact.allContacts.label" /></g:link>
+        <g:link class="btn btn-info" mapping="groupContactReport"><g:message code="contact.report.label" /></g:link></td>
     </div>
-<br>
     <div class="container table-responsive">
         <table class="table table-bordered table-hover table-sm">
-            <caption>Reporte</caption>
+            <caption><g:message code="contact.report.label" /></caption>
             <thead class="thead-dark">
             <tr>
-                <th>Nombre</th>
-                <th>Apellido Paterno</th>
-                <th>Apellido Materno</th>
-                <th>Teléfono celular</th>
-                <th>Teléfono de casa</th>
-                <th>Parentezco</th>
+                <th><g:message code="contact.name.label" /></th>
+                <th><g:message code="contact.fatherLastName.label" /></th>
+                <th><g:message code="contact.motherLastName.label" /></th>
+                <th><g:message code="contact.mobilePhone.label" /></th>
+                <th><g:message code="contact.homePhone.label" /></th>
+                <th><g:message code="contact.relationship.label" /></th>
             </tr>
             </thead>
             <tbody>

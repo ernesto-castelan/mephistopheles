@@ -2,7 +2,8 @@ package mephistopheles
 
 class ContactController {
 
-    static allowedMethods = [index:'GET', create:'GET', save:'POST', show:'GET', update:'POST', edit:'GET', delete:'GET']
+    static allowedMethods = [index:'GET', create:'GET', save:'POST', show:'GET', update:'POST', edit:'GET', delete:'GET',
+                             contactReport:'GET', groupContactReport:'GET']
 
     ContactService contactService
 
@@ -73,10 +74,14 @@ class ContactController {
         redirect action:'index'
     }
 
-    def report (String relationship){
-        List<Contact> contactList = contactService.report(relationship)
-        println(contactList)
+    def contactReport (){
+        List<Contact> contactList = contactService.getContactReport(params.relationship)
         return [contactList: contactList]
+    }
+
+    def groupContactReport (){
+        List<ContactReportResult> groupContactList = contactService.getGroupContactReport()
+        return [groupContactList: groupContactList]
     }
 
 }
