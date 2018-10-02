@@ -8,6 +8,12 @@
 <div class="container">
     <g:link class="btn btn-success" mapping="pizzas" ><g:message code="pizza.allPizzas.label" /></g:link>
     <g:link class="btn btn-success" mapping="orders" ><g:message code="pizza.allOrders.label" /></g:link>
+
+    <div class="container display4 p-2">
+        <g:if test="${flash.message}">
+            <h4>${flash.message}</h4>
+        </g:if>
+    </div>
 </div>
 <br>
 <div class="container table-responsive">
