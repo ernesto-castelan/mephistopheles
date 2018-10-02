@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><g:message code="view.index.title" /></title>
     <meta name="layout" content="contactmain" />
 </head>
 <body>
