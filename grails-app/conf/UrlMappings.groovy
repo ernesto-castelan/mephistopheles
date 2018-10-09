@@ -7,6 +7,17 @@ class UrlMappings {
             }
         }
 
+        name contactReport: "/details/$relationship" {
+            controller = 'contact'
+            action = 'contactReport'
+        }
+
+        name groupContactReport: "/group/" {
+            controller = 'contact'
+            action = 'groupContactReport'
+        }
+
+
         "/"(view:"/index")
         "500"(view:'/error')
 	}

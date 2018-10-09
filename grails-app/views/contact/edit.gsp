@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="layout" content="contactmain" />
-    <asset:javascript src="validation.js"/>
-    <asset:stylesheet src="contact.form.css"/>
+    <asset:stylesheet src="validationEngine.jquery.css"/>
+    <asset:stylesheet src="template.css"/>
+    <asset:javascript src="jquery.validationEngine-es.js" charset="utf-8"/>
+    <asset:javascript src="jquery.validationEngine.js" charset="utf-8"/>
+    <asset:javascript src="jqvalidatione.js"/>
 </head>
 <body>
-    <div class="container">
-        <g:link class="btn btn-info" action="index">Todos los contactos</g:link>
+    <div class="container mb-3">
+        <g:link class="btn btn-info" action="index"><g:message code="contact.allContacts.label" /></g:link>
     </div>
-    <br>
-    <div class="container border border-secondary rounded">
-        <p>Actualizar contacto</p>
+    <div class="container border border-secondary rounded p-2">
+        <p><g:message code="view.edit.updateContact" /></p>
 
         <g:render template="errors"/>
 
         <g:form action="update" controller="contact" name="contactForm" id = "${contactInstance.id}" >
             <g:render template="form"/>
             <g:submitButton class="btn btn-info" name="update" value="Guardar" />
-            <g:link type="button" class="btn btn-secondary" action="show" id = "${contactInstance.id}">Cancelar</g:link>
+            <g:link type="button" class="btn btn-secondary" action="show" id = "${contactInstance.id}"><g:message code="view.edit.cancelContact"/></g:link>
         </g:form>
-        <br>
     </div>
 </body>
 </html>

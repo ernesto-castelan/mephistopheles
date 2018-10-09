@@ -2,7 +2,10 @@ package mephistopheles
 
 class ContactController {
 
-    static allowedMethods = [index:'GET', create:'GET', save:'POST', show:'GET', update:'POST', edit:'GET', delete:'GET']
+    static allowedMethods = [index:'GET', create:'GET', save:'POST', show:'GET', update:'POST', edit:'GET', delete:'GET',
+                             contactReport:'GET', groupContactReport:'GET']
+
+    ContactService contactService
 
     def index () {
         params.max = Math.min(params.max ? params.int('max') : 50, 500)
@@ -21,30 +24,25 @@ class ContactController {
             render view:'create', model:[contactInstance:contactInstance, contactErrors:contactInstance.errors ]
             return
         }
-        println(contactInstance.toString())
-        contactInstance.save()
+        contactService.save(contactInstance)
         redirect action:'show', id:contactInstance.id
     }
 
     def show(Long id) {
         Contact contactInstance = Contact.get(id)
-
         if (!contactInstance) {
             redirect action:'index'
             return
         }
-
         return [contactInstance:contactInstance]
     }
 
     def edit(Long id) {
         Contact contactInstance = Contact.get(id)
-
         if (!contactInstance) {
             redirect action:'index'
             return
         }
-
         return [contactInstance:contactInstance]
     }
 
@@ -68,13 +66,22 @@ class ContactController {
 
     def delete (Long id) {
         Contact contactInstance = Contact.get(id)
-
         if (!contactInstance) {
             redirect action:'index'
             return
         }
-
-        contactInstance.delete(flush: true)
+        contactService.delete(contactInstance)
         redirect action:'index'
     }
+
+    def contactReport (){
+        List<Contact> contactList = contactService.getContactReport(params.relationship)
+        return [contactList: contactList]
+    }
+
+    def groupContactReport (){
+        List<ContactReportResult> groupContactList = contactService.getGroupContactReport()
+        return [groupContactList: groupContactList]
+    }
+
 }

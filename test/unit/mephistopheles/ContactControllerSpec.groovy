@@ -2,12 +2,13 @@ package mephistopheles
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification
+import spock.lang.Ignore
 import spock.lang.Unroll
 
 /**
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
  */
-@Mock([Contact])
+@Mock([Contact, ContactService])
 @TestFor(ContactController)
 class ContactControllerSpec extends Specification {
 
@@ -329,7 +330,7 @@ class ContactControllerSpec extends Specification {
 
     }
 
-    //edit
+    //delete
     @Unroll("[delete] Method #requestMethod have response code #responseStatus")
     void "Test request method for delete"() {
         setup: "Set request method"
@@ -380,6 +381,75 @@ class ContactControllerSpec extends Specification {
 
         and: "Contact instance is deleted"
         Contact.count == 1
+    }
+
+    //contactReport
+    @Unroll("[contactReport] Method #requestMethod have response code #responseStatus")
+    void "Test request method for contactReport"() {
+        setup: "Set request method"
+        request.method = requestMethod
+
+        when: "Calling the contactReport action"
+        controller.contactReport()
+
+        then: "Validate status"
+        response.status == responseStatus
+
+        where:
+        requestMethod   |responseStatus
+        'GET'           |200
+        'HEAD'          |405
+        'TRACE'         |405
+        'CONNECT'       |405
+        'POST'          |405
+        'PUT'           |405
+    }
+
+    void "[contactReport] Request contactList"() {
+        setup: "Set request data"
+        request.method = 'GET'
+        params.relationship = "Padre"
+
+        when: "Calling the contactReport action"
+        def model = controller.contactReport()
+
+        then: "Model is correct"
+        model.contactList.size() == 1
+    }
+
+    @Ignore("Criteria does not work at unit tests")
+    //groupContactReport
+    @Unroll("[groupContactReport] Method #requestMethod have response code #responseStatus")
+    void "Test request method for groupContactReport"() {
+        setup: "Set request method"
+        request.method = requestMethod
+
+        when: "Calling the groupContactReport action"
+        controller.groupContactReport()
+
+        then: "Validate status"
+        response.status == responseStatus
+
+        where:
+        requestMethod   |responseStatus
+        'GET'           |200
+        'HEAD'          |405
+        'TRACE'         |405
+        'CONNECT'       |405
+        'POST'          |405
+        'PUT'           |405
+    }
+
+    @Ignore("Criteria does not work at unit tests")
+    void "[groupContactReport] Request List POGO"() {
+        setup: "Set request data"
+        request.method = 'GET'
+
+        when: "Calling the contactReport action"
+        List<ContactReportResult> reportContactList = controller.groupContactReport()
+
+        then: "Model is correct"
+        reportContactList.size() == 2
     }
 
     def cleanup() {
