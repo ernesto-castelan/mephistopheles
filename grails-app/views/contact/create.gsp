@@ -10,10 +10,10 @@
     <asset:javascript src="jqvalidatione.js"/>
 </head>
 <body>
-    <div class="container">
+    <div class="container mb-3">
         <g:link class="btn btn-info" action="index"><g:message code="contact.allContacts.label" /></g:link>
     </div>
-    <div class="container border border-secondary rounded">
+    <div class="container border border-secondary rounded p-3">
         <p><g:message code="view.create.newContact" /></p>
 
         <g:render template="errors"/>
